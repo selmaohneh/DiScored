@@ -11,7 +11,7 @@ My friends and me visit Pub Quizzes from time to time. Of course we weren't allo
 ## Getting Started
 
 1. Clone the repository and build the project!
-2. Create a bot account via the Discord Applications Portal. The guys from [Discord.Net](https://github.com/discord-net/Discord.Net) have a nice tutorial [right here](https://discord.foxbot.me/stable/guides/getting_started/first-bot.html) - just follow the parts under *Creating a Discord Bot* and *Adding your bot to a server* and you should be good to go.
+2. Create a bot account via the Discord Applications Portal. The guys from [Discord.Net](https://github.com/discord-net/Discord.Net) have a nice tutorial [right here](https://discord.foxbot.me/stable/guides/getting_started/first-bot.html) - just follow the parts under **Creating a Discord Bot** and **Adding your bot to a server** and you should be good to go.
 3. Run **DiScored** and start playing! :-)
 
 ## Commands
