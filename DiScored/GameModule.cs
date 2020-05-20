@@ -22,7 +22,7 @@ namespace DiScored
         }
 
         [Command("score")]
-        public async Task ScoreAsync(string playerName, double points)
+        public async Task ScoreAsync(string playerName, double points = 1)
         {
             var moderator = new Moderator(Context.User.Username);
             var player = new Player(playerName);
