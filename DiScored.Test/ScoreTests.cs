@@ -33,18 +33,19 @@ namespace DiScored.Test
         }
 
         [TestMethod]
-        public void CreateScoreFromMultipleScores_VerifyNewScoreIsSum()
+        public void DontAllowCommentNull()
         {
-            var scores = new List<Score>
+            const string testValue = null;
+
+            try
             {
-                new Score(21.21),
-                new Score(42.42),
-                new Score(99.99)
-            };
-
-            var score = new Score(scores);
-
-            Assert.AreEqual(21.21 + 42.42 + 99.99, score.Value);
+                new Score(42, testValue);
+                Assert.Fail("Expected exception was not thrown.");
+            }
+            catch (ArgumentException e)
+            {
+                Assert.AreEqual("The comment of score is not allowed to be null.", e.Message);
+            }
         }
 
         [TestMethod]

@@ -22,12 +22,27 @@ namespace DiScored
         }
 
         [Command("score")]
-        public async Task ScoreAsync(string playerName, double points = 1)
+        public async Task ScoreAsync(string playerName, double points, [Remainder] string comment)
         {
-            var moderator = new Moderator(Context.User.Username);
-            var player = new Player(playerName);
-            var score = new Score(points);
-            await _gameCommander.Score(moderator, player, score);
+            await Score(playerName, points, comment);
+        }
+
+        [Command("score")]
+        public async Task ScoreAsync(string playerName, double points)
+        {
+            await Score(playerName, points, "");
+        }
+
+        [Command("score")]
+        public async Task ScoreAsync(string playerName)
+        {
+            await Score(playerName, 1, "");
+        }
+
+        [Command("score")]
+        public async Task ScoreAsync(string playerName, [Remainder] string comment)
+        {
+            await Score(playerName, 1, comment);
         }
 
         [Command("standings")]
@@ -35,6 +50,14 @@ namespace DiScored
         {
             var moderator = new Moderator(Context.User.Username);
             await _gameCommander.Standings(moderator);
+        }
+
+        private async Task Score(string playerName, double points, string comment)
+        {
+            var moderator = new Moderator(Context.User.Username);
+            var player = new Player(playerName);
+            var score = new Score(points, comment);
+            await _gameCommander.Score(moderator, player, score);
         }
     }
 }

@@ -7,8 +7,9 @@ namespace DiScored
     public class Score
     {
         public double Value { get; }
+        public string Comment { get; }
 
-        public Score(double value)
+        public Score(double value, string comment = "")
         {
             if (double.IsNaN(value))
             {
@@ -16,11 +17,7 @@ namespace DiScored
             }
 
             Value = value;
-        }
-
-        public Score(IEnumerable<Score> scores)
-        {
-            Value = scores.Sum(s => s.Value);
+            Comment = comment ?? throw new ArgumentException("The comment of score is not allowed to be null.");
         }
 
         public override bool Equals(object obj)

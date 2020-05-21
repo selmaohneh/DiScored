@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DiScored
 {
     public class Player : IEquatable<Player>
     {
         public string Name { get; }
-        public Score CurrentScore => new Score(_scores);
+        public Score CurrentScore => new Score(_scores.Select(s=>s.Value).Sum());
 
         private readonly List<Score> _scores = new List<Score>();
 

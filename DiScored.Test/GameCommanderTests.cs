@@ -91,6 +91,26 @@ namespace DiScored.Test
         }
 
         [TestMethod]
+        public async Task AddScore_WithComment_CorrectOutput()
+        {
+            var output = new Mock<IMarkdownOutput>();
+            var sut = new GameCommander(output.Object);
+
+            var moderator = new Moderator(Resources.HomerSimpson);
+            var player1 = new Player(Resources.HomerSimpson);
+            var player2 = new Player(Resources.MargeSimpson);
+            var player3 = new Player(Resources.BartSimpson);
+
+            await sut.New(moderator, player1, player2, player3);
+            await sut.Score(moderator, player2, new Score(42, "Question 3"));
+
+            var expectedOutput =
+                "**Homer Simpson** added **42** point(s) to **Marge Simpson**. Comment: **Question 3**.";
+
+            output.Verify(x => x.Write(expectedOutput));
+        }
+
+        [TestMethod]
         public async Task Standings_CorrectOutput()
         {
             var output = new Mock<IMarkdownOutput>();

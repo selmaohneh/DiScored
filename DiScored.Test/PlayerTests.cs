@@ -44,12 +44,13 @@ namespace DiScored.Test
         {
             var player = new Player(Resources.HomerSimpson);
 
-            player.AddScore(new Score(42));
+            player.AddScore(new Score(42, Resources.HomerSimpson));
             player.AddScore(new Score(-21));
-            player.AddScore(new Score(0));
+            player.AddScore(new Score(0, Resources.MargeSimpson));
             player.AddScore(new Score(0.21));
 
             Assert.AreEqual(21.21, player.CurrentScore.Value);
+            Assert.AreEqual("", player.CurrentScore.Comment);
         }
 
         [TestMethod]

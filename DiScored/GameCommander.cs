@@ -36,7 +36,15 @@ namespace DiScored
 
             foundPlayer.AddScore(score);
 
-            await _output.Write($"**{moderator.Name}** added **{score.Value}** point(s) to **{player.Name}**.");
+            if (string.IsNullOrWhiteSpace(score.Comment))
+            {
+                await _output.Write($"**{moderator.Name}** added **{score.Value}** point(s) to **{player.Name}**.");
+            }
+            else
+            {
+                await _output.Write(
+                    $"**{moderator.Name}** added **{score.Value}** point(s) to **{player.Name}**. Comment: **{score.Comment}**.");
+            }
         }
 
         private void EnsureAllowedToAddScore(Moderator moderator)
