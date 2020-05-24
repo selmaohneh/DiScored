@@ -21,7 +21,7 @@ My friends and me visit Pub Quizzes from time to time. Of course we weren't allo
 Not specifying the points will add 1 point to the given player. You can optionally append a comment that will be echoed by **DiScored**. You could use that e.g. for recording the corresponding answer that led to the score. Examples: `!score bart 7 Skateboard` (adds 7 points to bart because he guessed the right answer 'Skateboard'), `!score homer Beer` (adds 1 point to homer because he guessed the right answer 'Beer').
 * **!standings** shows the current standings,
 
-Only the user that created the game via **!new** is allowed to use the other two commands **!score** and **!standings** - no room for cheaters ;-)
+Only the user that created the game via **!new** is allowed to use the **!score** command - no room for cheaters ;-)
 
 ## Contributing
 
